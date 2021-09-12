@@ -11,7 +11,7 @@ RUN curl -O https://get.symfony.com/cli/installer \
     && mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 
 #PHP Extensions
-RUN docker-php-ext-install intl
+RUN docker-php-ext-install intl pdo pdo_mysql
 
 #Composer
 RUN curl -sS https://getcomposer.org/installer | php
