@@ -3,6 +3,9 @@ FROM php:7.4-fpm
 RUN apt-get update && apt-get install -y \
     git \
     libicu-dev \
+    zip \
+    unzip \
+    libzip-dev \
     && rm -rf /var/lib/apt/lists/*
 
 #Install Symfony CLI
@@ -11,7 +14,7 @@ RUN curl -O https://get.symfony.com/cli/installer \
     && mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 
 #PHP Extensions
-RUN docker-php-ext-install intl pdo pdo_mysql
+RUN docker-php-ext-install intl pdo pdo_mysql zip
 
 #Composer
 RUN curl -sS https://getcomposer.org/installer | php
